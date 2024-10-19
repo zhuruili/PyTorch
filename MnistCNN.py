@@ -6,10 +6,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+
 import torchvision
 from torchvision import datasets, transforms
+
 import matplotlib.pyplot as plt
 import numpy as np
+
 import warnings
 warnings.filterwarnings('ignore') # 忽略警告
 
@@ -22,10 +25,10 @@ learning_rate = 0.001 #学习率
 DOWNLOAD_MNIST = False  # 是否下载数据集，如果数据集下载好了就写False
 
 # 训练集
-train_data = torchvision.datasets.MNIST(
+train_data = datasets.MNIST(
     root='Rookie\part_2_items\MachineLearning\PyTorch\data',  # 下载文件的保存路径或数据提取路径
     train=True,  # true说明是用于训练的数据，false说明是用于测试的数据
-    transform=torchvision.transforms.ToTensor(),  # 转换PIL.Image or numpy.ndarray
+    transform=transforms.ToTensor(),  # 转换PIL.Image or numpy.ndarray
 
     download=DOWNLOAD_MNIST,  # 已经下载了就不需要下载了
 )
@@ -34,7 +37,7 @@ train_data = torchvision.datasets.MNIST(
 test_data = torchvision.datasets.MNIST(
     root='Rookie\part_2_items\MachineLearning\PyTorch\data',
     train=False,  # 表明是测试集
-    transform=torchvision.transforms.ToTensor()
+    transform=transforms.ToTensor()
 )
 
 # 数据加载
